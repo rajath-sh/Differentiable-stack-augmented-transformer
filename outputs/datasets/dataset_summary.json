@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-01-30 09:53:54",
+  "tasks": [
+    "Dyck-1 (Single Bracket)",
+    "Dyck-2 (Multi-Bracket)"
+  ],
+  "training_data": {
+    "total": 10000,
+    "dyck1_count": 5154,
+    "dyck2_count": 4846,
+    "valid_count": 5000,
+    "invalid_count": 5000
+  },
+  "validation_data": {
+    "total": 2000
+  },
+  "test_data": {
+    "D1-Short (6-10)": 500,
+    "D1-Medium (12-18)": 500,
+    "D1-Long (20-30)": 500,
+    "D1-Very Long (32-44)": 500,
+    "D2-Short (6-10)": 500,
+    "D2-Medium (12-18)": 500,
+    "D2-Long (20-30)": 500,
+    "D2-Very Long (32-44)": 500
+  },
+  "label_explanation": {
+    "0 (valid)": "Correctly balanced brackets",
+    "1 (invalid)": "Unbalanced or mismatched brackets"
+  },
+  "task_explanation": {
+    "Dyck-1": "Uses only ( ) - tests depth tracking",
+    "Dyck-2": "Uses ( ) and [ ] - tests depth + type tracking"
+  }
+}

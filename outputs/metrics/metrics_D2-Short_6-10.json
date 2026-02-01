@@ -1,0 +1,49 @@
+{
+  "test_set": "D2-Short (6-10)",
+  "baseline": {
+    "confusion_matrix": [
+      [
+        235,
+        15
+      ],
+      [
+        111,
+        139
+      ]
+    ],
+    "accuracy": 74.8,
+    "precision": 90.25974025974025,
+    "recall": 55.60000000000001,
+    "f1_score": 68.81188118811882,
+    "true_negatives": 235,
+    "false_positives": 15,
+    "false_negatives": 111,
+    "true_positives": 139
+  },
+  "stack_augmented": {
+    "confusion_matrix": [
+      [
+        240,
+        10
+      ],
+      [
+        109,
+        141
+      ]
+    ],
+    "accuracy": 76.2,
+    "precision": 93.37748344370861,
+    "recall": 56.39999999999999,
+    "f1_score": 70.32418952618454,
+    "true_negatives": 240,
+    "false_positives": 10,
+    "false_negatives": 109,
+    "true_positives": 141
+  },
+  "comparison": {
+    "accuracy_improvement": 1.4000000000000057,
+    "f1_improvement": 1.512308338065722,
+    "precision_improvement": 3.117743183968358,
+    "recall_improvement": 0.799999999999983
+  }
+}

@@ -1,0 +1,273 @@
+======================================================================
+STACK-AUGMENTED TRANSFORMER TRAINING
+Tasks: Dyck-1 (Single Bracket) + Dyck-2 (Multi-Bracket)
+======================================================================
+
+Device: cuda
+  GPU: Tesla T4
+
+Loading tokenizer: distilbert-base-uncased
+
+======================================================================
+GENERATING DATASETS (Dyck-1 + Dyck-2 Combined)
+======================================================================
+
+Generating training data...
+  Dyck-1 training: 5000 samples
+  Dyck-2 training: 5000 samples
+  Total training: 10000 samples
+Generating validation data...
+  Total validation: 2000 samples
+
+Generating test sets...
+  --- Dyck-1 (Single Bracket) ---
+    D1-Short (6-10): 500 samples
+    D1-Medium (12-18): 500 samples
+    D1-Long (20-30): 500 samples
+    D1-Very Long (32-44): 500 samples
+  --- Dyck-2 (Multi-Bracket) ---
+    D2-Short (6-10): 500 samples
+    D2-Medium (12-18): 500 samples
+    D2-Long (20-30): 500 samples
+    D2-Very Long (32-44): 500 samples
+
+======================================================================
+EXPORTING DATASETS (before training)
+======================================================================
+  ✓ Training data (10000 samples): /kaggle/working/project/outputs/datasets/training_data.csv
+  ✓ Validation data (2000 samples): /kaggle/working/project/outputs/datasets/validation_data.csv
+  ✓ Test data (4000 samples): /kaggle/working/project/outputs/datasets/test_data.csv
+  ✓ Dataset summary: /kaggle/working/project/outputs/datasets/dataset_summary.json
+
+DataLoader batch size: 64
+Training batches: 157
+Validation batches: 32
+
+======================================================================
+INITIALIZING MODELS
+======================================================================
+
+Loading Baseline Transformer...
+2026-01-30 09:53:55.388021: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1769766835.411179     267 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1769766835.417598     267 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1769766835.434100     267 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1769766835.434129     267 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1769766835.434132     267 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1769766835.434135     267 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+Loading Stack-Augmented Transformer...
+
+======================================================================
+TRAINING (Encoder Frozen)
+Epochs: 20, Learning Rate: 0.0005
+======================================================================
+
+--- Training Baseline Transformer ---
+  [Baseline] Encoder frozen
+  [Baseline] Trainable parameters: 296,066
+  [Baseline] Epoch  1: Loss = 0.5372, Val Acc = 68.5%, LR = 0.000497            
+  [Baseline] Epoch  2: Loss = 0.4499, Val Acc = 76.2%, LR = 0.000488            
+  [Baseline] Epoch  3: Loss = 0.4219, Val Acc = 75.4%, LR = 0.000473            
+  [Baseline] Epoch  4: Loss = 0.3992, Val Acc = 74.1%, LR = 0.000453            
+  [Baseline] Epoch  5: Loss = 0.3937, Val Acc = 79.0%, LR = 0.000428            
+  [Baseline] Epoch  6: Loss = 0.3837, Val Acc = 80.1%, LR = 0.000398            
+  [Baseline] Epoch  7: Loss = 0.3734, Val Acc = 79.8%, LR = 0.000365            
+  [Baseline] Epoch  8: Loss = 0.3714, Val Acc = 78.3%, LR = 0.000329            
+  [Baseline] Epoch  9: Loss = 0.3703, Val Acc = 79.9%, LR = 0.000291            
+  [Baseline] Epoch 10: Loss = 0.3680, Val Acc = 78.1%, LR = 0.000253            
+  [Baseline] Epoch 11: Loss = 0.3617, Val Acc = 77.3%, LR = 0.000214            
+  [Baseline] Epoch 12: Loss = 0.3581, Val Acc = 80.3%, LR = 0.000176            
+  [Baseline] Epoch 13: Loss = 0.3495, Val Acc = 81.0%, LR = 0.000140            
+  [Baseline] Epoch 14: Loss = 0.3489, Val Acc = 80.8%, LR = 0.000107            
+  [Baseline] Epoch 15: Loss = 0.3507, Val Acc = 81.0%, LR = 0.000077            
+  [Baseline] Epoch 16: Loss = 0.3459, Val Acc = 81.0%, LR = 0.000052            
+  [Baseline] Epoch 17: Loss = 0.3430, Val Acc = 80.7%, LR = 0.000032            
+  [Baseline] Epoch 18: Loss = 0.3402, Val Acc = 80.7%, LR = 0.000017            
+  [Baseline] Epoch 19: Loss = 0.3390, Val Acc = 81.3%, LR = 0.000008            
+  [Baseline] Epoch 20: Loss = 0.3445, Val Acc = 80.6%, LR = 0.000005            
+
+--- Training Stack-Augmented Transformer ---
+  [Stack] Encoder frozen
+  [Stack] Trainable parameters: 628,307
+  [Stack] Epoch  1: Loss = 0.5385, Val Acc = 72.1%, LR = 0.000497               
+  [Stack] Epoch  2: Loss = 0.4408, Val Acc = 70.0%, LR = 0.000488               
+  [Stack] Epoch  3: Loss = 0.4189, Val Acc = 72.0%, LR = 0.000473               
+  [Stack] Epoch  4: Loss = 0.3910, Val Acc = 79.3%, LR = 0.000453               
+  [Stack] Epoch  5: Loss = 0.3837, Val Acc = 77.7%, LR = 0.000428               
+  [Stack] Epoch  6: Loss = 0.3761, Val Acc = 78.4%, LR = 0.000398               
+  [Stack] Epoch  7: Loss = 0.3686, Val Acc = 80.8%, LR = 0.000365               
+  [Stack] Epoch  8: Loss = 0.3642, Val Acc = 77.8%, LR = 0.000329               
+  [Stack] Epoch  9: Loss = 0.3650, Val Acc = 81.7%, LR = 0.000291               
+  [Stack] Epoch 10: Loss = 0.3531, Val Acc = 78.1%, LR = 0.000253               
+  [Stack] Epoch 11: Loss = 0.3477, Val Acc = 80.2%, LR = 0.000214               
+  [Stack] Epoch 12: Loss = 0.3478, Val Acc = 79.7%, LR = 0.000176               
+  [Stack] Epoch 13: Loss = 0.3402, Val Acc = 80.5%, LR = 0.000140               
+  [Stack] Epoch 14: Loss = 0.3469, Val Acc = 81.3%, LR = 0.000107               
+  [Stack] Epoch 15: Loss = 0.3336, Val Acc = 80.0%, LR = 0.000077               
+  [Stack] Epoch 16: Loss = 0.3346, Val Acc = 82.1%, LR = 0.000052               
+  [Stack] Epoch 17: Loss = 0.3356, Val Acc = 79.4%, LR = 0.000032               
+  [Stack] Epoch 18: Loss = 0.3328, Val Acc = 79.8%, LR = 0.000017               
+  [Stack] Epoch 19: Loss = 0.3345, Val Acc = 81.2%, LR = 0.000008               
+  [Stack] Epoch 20: Loss = 0.3265, Val Acc = 81.7%, LR = 0.000005               
+
+======================================================================
+SAVING MODEL CHECKPOINTS
+======================================================================
+  ✓ Model saved: /kaggle/working/project/outputs/checkpoints/baseline_model.pt
+  ✓ Model saved: /kaggle/working/project/outputs/checkpoints/stack_augmented_model.pt
+
+======================================================================
+TEST RESULTS
+======================================================================
+
+----------------------------------------------------------------------
+DYCK-1 (Single Bracket) RESULTS
+----------------------------------------------------------------------
+Test Set                  Baseline     Stack        Δ Acc     
+----------------------------------------------------------------------
+
+  [Baseline] Detailed Metrics:
+    Accuracy:  98.8%
+    Precision: 100.0%
+    Recall:    97.6%
+    F1 Score:  98.8%
+
+  [Stack] Detailed Metrics:
+    Accuracy:  99.2%
+    Precision: 100.0%
+    Recall:    98.4%
+    F1 Score:  99.2%
+D1-Short (6-10)             98.8%       99.2%      +0.4%
+
+  [Baseline] Detailed Metrics:
+    Accuracy:  94.6%
+    Precision: 99.6%
+    Recall:    89.6%
+    F1 Score:  94.3%
+
+  [Stack] Detailed Metrics:
+    Accuracy:  95.0%
+    Precision: 99.6%
+    Recall:    90.4%
+    F1 Score:  94.8%
+D1-Medium (12-18)           94.6%       95.0%      +0.4%
+
+  [Baseline] Detailed Metrics:
+    Accuracy:  87.4%
+    Precision: 82.1%
+    Recall:    95.6%
+    F1 Score:  88.4%
+
+  [Stack] Detailed Metrics:
+    Accuracy:  88.6%
+    Precision: 84.1%
+    Recall:    95.2%
+    F1 Score:  89.3%
+D1-Long (20-30)             87.4%       88.6%      +1.2%
+
+  [Baseline] Detailed Metrics:
+    Accuracy:  59.8%
+    Precision: 55.5%
+    Recall:    99.6%
+    F1 Score:  71.2%
+
+  [Stack] Detailed Metrics:
+    Accuracy:  62.2%
+    Precision: 57.0%
+    Recall:    99.2%
+    F1 Score:  72.4%
+D1-Very Long (32-44)        59.8%       62.2%      +2.4%
+D1 AVERAGE                  85.1%       86.2%      +1.1%
+
+----------------------------------------------------------------------
+DYCK-2 (Multi-Bracket) RESULTS
+----------------------------------------------------------------------
+Test Set                  Baseline     Stack        Δ Acc     
+----------------------------------------------------------------------
+
+  [Baseline] Detailed Metrics:
+    Accuracy:  74.8%
+    Precision: 90.3%
+    Recall:    55.6%
+    F1 Score:  68.8%
+
+  [Stack] Detailed Metrics:
+    Accuracy:  76.2%
+    Precision: 93.4%
+    Recall:    56.4%
+    F1 Score:  70.3%
+D2-Short (6-10)             74.8%       76.2%      +1.4%
+
+  [Baseline] Detailed Metrics:
+    Accuracy:  61.8%
+    Precision: 70.3%
+    Recall:    40.8%
+    F1 Score:  51.6%
+
+  [Stack] Detailed Metrics:
+    Accuracy:  63.2%
+    Precision: 71.4%
+    Recall:    44.0%
+    F1 Score:  54.5%
+D2-Medium (12-18)           61.8%       63.2%      +1.4%
+
+  [Baseline] Detailed Metrics:
+    Accuracy:  53.4%
+    Precision: 53.7%
+    Recall:    48.8%
+    F1 Score:  51.2%
+
+  [Stack] Detailed Metrics:
+    Accuracy:  52.2%
+    Precision: 52.5%
+    Recall:    46.4%
+    F1 Score:  49.3%
+D2-Long (20-30)             53.4%       52.2%      -1.2%
+
+  [Baseline] Detailed Metrics:
+    Accuracy:  53.2%
+    Precision: 52.9%
+    Recall:    59.2%
+    F1 Score:  55.8%
+
+  [Stack] Detailed Metrics:
+    Accuracy:  54.0%
+    Precision: 53.7%
+    Recall:    57.6%
+    F1 Score:  55.6%
+D2-Very Long (32-44)        53.2%       54.0%      +0.8%
+D2 AVERAGE                  60.8%       61.4%      +0.6%
+
+======================================================================
+OVERALL SUMMARY
+======================================================================
+Dyck-1 Improvement: +1.1%
+Dyck-2 Improvement: +0.6%
+Overall Improvement: +0.9%
+
+======================================================================
+GENERATING GRAPHS
+======================================================================
+✓ Graph 1 saved: /kaggle/working/project/outputs/graphs/graph1_training_curves.png
+✓ Graph 2 saved: /kaggle/working/project/outputs/graphs/graph2_dyck1_test_accuracy.png
+✓ Graph 2 saved: /kaggle/working/project/outputs/graphs/graph3_dyck2_test_accuracy.png
+✓ Graph 3 saved: /kaggle/working/project/outputs/graphs/graph4_confusion_matrices.png
+
+======================================================================
+EXPORTING RESULTS
+======================================================================
+  ✓ Training results: /kaggle/working/project/outputs/results/training_results.json
+
+======================================================================
+✓ TRAINING COMPLETE!
+======================================================================
+  Tasks: Dyck-1 + Dyck-2 (10,000 total training samples)
+  Graphs:     /kaggle/working/project/outputs/graphs
+  Datasets:   outputs/datasets/
+  Models:     /kaggle/working/project/outputs/checkpoints
+  Metrics:    outputs/metrics/
+
+  Dyck-1 Improvement: +1.1%
+  Dyck-2 Improvement: +0.6%
+======================================================================

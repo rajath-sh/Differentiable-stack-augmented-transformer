@@ -1,0 +1,49 @@
+{
+  "test_set": "D1-Very Long (32-44)",
+  "baseline": {
+    "confusion_matrix": [
+      [
+        50,
+        200
+      ],
+      [
+        1,
+        249
+      ]
+    ],
+    "accuracy": 59.8,
+    "precision": 55.45657015590201,
+    "recall": 99.6,
+    "f1_score": 71.24463519313305,
+    "true_negatives": 50,
+    "false_positives": 200,
+    "false_negatives": 1,
+    "true_positives": 249
+  },
+  "stack_augmented": {
+    "confusion_matrix": [
+      [
+        63,
+        187
+      ],
+      [
+        2,
+        248
+      ]
+    ],
+    "accuracy": 62.2,
+    "precision": 57.01149425287356,
+    "recall": 99.2,
+    "f1_score": 72.40875912408758,
+    "true_negatives": 63,
+    "false_positives": 187,
+    "false_negatives": 2,
+    "true_positives": 248
+  },
+  "comparison": {
+    "accuracy_improvement": 2.4000000000000057,
+    "f1_improvement": 1.1641239309545313,
+    "precision_improvement": 1.554924096971554,
+    "recall_improvement": -0.3999999999999915
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "test_set": "D2-Medium (12-18)",
+  "baseline": {
+    "confusion_matrix": [
+      [
+        207,
+        43
+      ],
+      [
+        148,
+        102
+      ]
+    ],
+    "accuracy": 61.8,
+    "precision": 70.34482758620689,
+    "recall": 40.8,
+    "f1_score": 51.64556962025316,
+    "true_negatives": 207,
+    "false_positives": 43,
+    "false_negatives": 148,
+    "true_positives": 102
+  },
+  "stack_augmented": {
+    "confusion_matrix": [
+      [
+        206,
+        44
+      ],
+      [
+        140,
+        110
+      ]
+    ],
+    "accuracy": 63.2,
+    "precision": 71.42857142857143,
+    "recall": 44.0,
+    "f1_score": 54.45544554455445,
+    "true_negatives": 206,
+    "false_positives": 44,
+    "false_negatives": 140,
+    "true_positives": 110
+  },
+  "comparison": {
+    "accuracy_improvement": 1.4000000000000057,
+    "f1_improvement": 2.809875924301288,
+    "precision_improvement": 1.083743842364541,
+    "recall_improvement": 3.200000000000003
+  }
+}
