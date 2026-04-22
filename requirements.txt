@@ -11,3 +11,4 @@ matplotlib>=3.8.0
 # Progress bars
 tqdm>=4.66.0
 
+ 
